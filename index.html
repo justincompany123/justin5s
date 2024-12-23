@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justin C. Ramos</title>
+    <style>
+        body {
+            background-image: url('https://images.hdqwalls.com/wallpapers/landscape-scenery-minimal-4k-ac.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            scroll-behavior: smooth;
+        }
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow-x: hidden;
+            transition: width 0.5s ease-in-out;
+            z-index: 100;
+            color: white;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #000;
+        }
+
+        .sidebar .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: white;
+    transition: color 0.3s ease-in-out;
+}
+
+.sidebar .close-btn:hover {
+    color: red;
+}
+
+
+        .open-sidebar {
+            font-size: 2em;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            z-index: 200;
+            color: white;
+        }
+
+        .main-content {
+            margin-left: 0;
+            padding: 20px;
+            transition: margin-left 0.5s ease-in-out;
+        }
+
+        .profile-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .profile-container img {
+            width: 150px;
+            height: 150px;
+            border-radius: 20%;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.6);
+            margin-right: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .profile-container img:hover {
+            transform: scale(1.1);
+        }
+
+        .profile-container h1 {
+            color: aliceblue;
+            font-size: 2.5em;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        h3, p {
+            margin: 10px 0;
+        }
+
+        p.about-me-text {
+            font-size: 1.1em;
+            text-align: center;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .table-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 40px auto;
+            gap: 20px;
+            max-width: 1000px;
+        }
+
+        .table {
+            width: 45%;
+            background-color: rgba(192, 184, 184, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .table:hover {
+            transform: translateY(-5px);
+        }
+
+        @media screen and (max-width: 768px) {
+            .table {
+                width: 100%;
+            }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgb(0, 0, 0);
+        }
+
+        th {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+        }
+
+        .education-container, .contact-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: rgba(192, 184, 184, 0.7);
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            font-size: 1.1em;
+            padding: 5px 0;
+        }
+        .MyYoutubeBusiness-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(230, 190, 190, 0.7);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.MyYoutubeBusiness-container h2, 
+.MyYoutubeBusiness-container p {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Add subtle shadow */
+}
+ .h3-about-me {
+    text-align: center;
+ }
+ .End {
+    text-align: center;
+ }
+ .End23 {
+    text-align: center;
+ }
+    </style>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <span class="close-btn" onclick="closeSidebar()">&times;</span>
+        <br>
+        <br>
+        <br>
+        <br>
+        <a href="#profile">Profile</a>
+        <a href="#about">About Me</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#MyYoutubeBusiness">My Youtube Business</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <span class="open-sidebar" onclick="openSidebar()">&#9776;</span>
+    
+        <span class="open-sidebar" onclick="openSidebar()">&#9776;</span>
+    <div id="profile" class="profile-container">
+        <img src="https://scontent.fceb2-2.fna.fbcdn.net/v/t39.30808-6/449306091_1527593717970338_887790629331938383_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEeUPES_nxgojcJKEIEObNNyQALOnyUc6LJAAs6fJRzonhY2VGkqiu3zcNhqn6olKIqLAFV7D-ZQRXl8sW5qfK9&_nc_ohc=xF3sFsvnYkYQ7kNvgFnjwmc&_nc_zt=23&_nc_ht=scontent.fceb2-2.fna&_nc_gid=AkqX9kIdfxwijQ2u9fUffCR&oh=00_AYAmyV-FoQA2RKA_GxAtEzztuNuW7_Bw9RT1KskgYhk_xg&oe=676B0368" alt="Profile Picture">
+        <h1>Justin C. Ramos</h1>
+    </div>
+
+    <div id="about">
+        <p class="about-me-text">I am a full-time vlogger deeply passionate about exploring and sharing the wonders of technology and the endless
+             possibilities of creativity. My journey is dedicated to crafting content that not only informs but also inspires, empowering my audience to embrace innovation and think outside the box. With a commitment to engaging storytelling and visually compelling presentations,
+              I aim to connect with a global community, sparking curiosity, encouraging discovery, and uplifting others through meaningful and impactful narratives. Whether it's diving into the latest tech trends, uncovering creative solutions,
+              or sharing life-changing ideas, my mission is to educate, entertain, and ignite inspiration in everyone who joins me on this incredible journey.</p>
+    </div>
+
+    <div id="skills" class="table-container">
+        <div class="table">
+            <h2>Skills</h2>
+            <ul>
+                <li>Leadership</li>
+                <li>Creativity</li>
+                <li>Time Management</li>
+                <li>Critical Thinking</li>
+                <li>Adaptability</li>
+                <li>Video Production</li>
+                <li>Public Speaking</li>
+                <li>Creative Direction</li>
+                <li>Creative Direction</li>
+                <li>Influence</li>
+                <li>Content Planning</li>
+            </ul>
+        </div>
+        <div class="table">
+            <h2>Hobbies</h2>
+            <ul>
+                <li>Vlogging</li>
+                <li>Coding</li>
+                <li>Video Editing</li>
+                <li>Image Editing</li>
+                <li>Cooking</li>
+                <li>Playing Badminton</li>
+                <li>Playing Online Video Games</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="education" class="education-container">
+        <h2>Education</h2>
+        <table>
+            <tr>
+                <th>Level</th>
+                <th>School</th>
+                <th>Year</th>
+            </tr>
+            <tr>
+                <td>Elementary</td>
+                <td>Esteban R. Abada Memorial School</td>
+                <td>2014-2018</td>
+            </tr>
+            <tr>
+                <td>High School</td>
+                <td>Kabankalan National High School</td>
+                <td>2018-2022</td>
+            </tr>
+            <tr>
+                <td>Senior High School</td>
+                <td>Kabankalan National High School</td>
+                <td>2022-2024</td>
+            </tr>
+            <tr>
+                <td>College</td>
+                <td>Fellowship Baptist College</td>
+                <td>2024-Present</td>
+            </tr>
+            
+        </table>
+    </div>
+    </div>
+    <div id="MyYoutubeBusiness" class="MyYoutubeBusiness-container">
+        <h2>My Own Youtube Channel</h2>
+        <br>
+        <p> recently earned a small amount of income from my YouTube channel, which I’m incredibly grateful for. My channel is all about sharing exciting and creative content focused on Roblox games and adventurous vlogs. Through my videos, I aim to inspire my audience with messages of bravery, courage, love, and faith in God’s glory.
+            It’s my dream and deepest desire to become one of the most well-known vloggers, someone who can truly make a positive impact in the lives of others. I want to influence people to be brave in the face of challenges, courageous in pursuing their dreams, and full of love and faith in God’s plan.
+            I firmly believe that every success in life is part of God’s divine plan. By staying faithful, determined, and consistent in my work, I trust that I can achieve this goal and continue spreading inspiration to as many people as possible. My journey is just beginning, but with God’s guidance and support from my viewers, I know amazing things are ahead! </p>
+    </div>
+    <div id="contact" class="contact-container">
+        <h2>Contact Information</h2>
+        <table>
+            <tr>
+                <th>Facebook</th>
+                <td>Justin Ramos</td>
+            </tr>
+            <tr>
+                <th>Gmail</th>
+                <td>ramos_justin@fbc.ph.education</td>
+            </tr>
+        </table>
+       </div>
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+            document.querySelector(".main-content").style.marginLeft = "250px";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+            document.querySelector(".main-content").style.marginLeft = "0";
+        }
+    </script>
+</body>
+</html>
+</body>
+
+
+    
